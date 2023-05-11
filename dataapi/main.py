@@ -3,6 +3,7 @@ import datetime
 from typing import Optional, List
 from fastapi import FastAPI, Response, Header
 import pandas as pd
+import uvicorn
 
 # RACECSV_FILEPATH = "./dummycreator/race.csv"
 # TEAMCSV_FILEPATH = "./dummycreator/teams.csv"
@@ -267,4 +268,5 @@ def read_capture(
 if __name__ == "__main__":
     # read_item(100, 2023)
     # parse_query("yr=2023&mt=03&dy=19&hr=12&mi=34&se=56")
-    read_data(Response,carNo=1,yr=2023,mt=3,dy=19,hr=12,mi=34,se=56)
+    # read_data(Response,carNo=1,yr=2023,mt=3,dy=19,hr=12,mi=34,se=56)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
